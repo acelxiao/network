@@ -23,9 +23,9 @@ public class Client {
 			out = new PrintWriter(socket.getOutputStream(), true);
 			
 			//向服务器端发送数据
-			out.println("你好啊服务端,我是客户端");
+			out.println("你好啊服务端,你吃饭了没？");
 			String response = in.readLine();
-			System.out.println("Client: " + response);
+			System.out.println(response);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
