@@ -14,11 +14,13 @@ public class Server {
 		ServerSocket server = null;
 		try {
 			server = new ServerSocket(PROT);
-			System.out.println(" server start .. ");
-			//进行阻塞
-			Socket socket = server.accept();
-			//新建一个线程执行客户端的任务
-			new Thread(new ServerHandler(socket)).start();
+			while (true){
+				Socket socket = server.accept(); //进行阻塞
+				System.out.println(" =========接收到一条新信息======== ");
+				//新建一个线程执行客户端的任务
+				new Thread(new ServerHandler(socket)).start();
+			}
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
